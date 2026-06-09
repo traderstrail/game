@@ -6,6 +6,7 @@
 <title>Trader's Trail - Buy Game Items & Accounts</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><path d='M16 10l6 4v5l-6 4-6-4v-5l6-4z' fill='white'/></svg>">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="favicon.ico">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
@@ -98,6 +99,26 @@ body {
   transform: translateY(-50%);
   color: rgba(255,255,255,0.3);
   pointer-events: none;
+}
+
+.search-bar .search-logo {
+  position: absolute;
+  left: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  pointer-events: none;
+  display: none;
+}
+
+.search-bar .search-logo.show {
+  display: block;
+}
+
+.search-bar input {
+  padding: 10px 16px 10px 60px;
 }
 
 .btn-discord-nav {
@@ -554,6 +575,7 @@ body {
     <span class="search-icon">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     </span>
+    <img src="logo.svg" alt="" class="search-logo" id="searchLogo" onerror="this.classList.remove('show')">
     <input type="text" id="searchInput" placeholder="Search products or games..." autocomplete="off">
   </div>
   <a href="#" target="_blank" class="btn-discord-nav" id="discordNav">
@@ -615,11 +637,20 @@ const SITE_CONFIG = {
   name: "Trader's Trail",
   tagline: "Premium gaming marketplace trusted by thousands of players worldwide.",
   logoIcon: ``,
+  logoUrl: "logo.svg",
+  searchLogoUrl: "logo.svg",
   discordInvite: "https://discord.gg/YOURINVITE"
 };
 
 document.querySelectorAll('.footer-logo').forEach(el => el.textContent = SITE_CONFIG.name);
 document.querySelector('.hero p').textContent = SITE_CONFIG.tagline;
+
+const searchLogo = document.getElementById('searchLogo');
+if (SITE_CONFIG.searchLogoUrl) {
+  searchLogo.src = SITE_CONFIG.searchLogoUrl;
+  searchLogo.onload = () => searchLogo.classList.add('show');
+  searchLogo.onerror = () => searchLogo.classList.remove('show');
+}
 document.getElementById('discordNav').href = SITE_CONFIG.discordInvite;
 document.getElementById('discordHero').href = SITE_CONFIG.discordInvite;
 document.getElementById('discordFooter').href = SITE_CONFIG.discordInvite;
