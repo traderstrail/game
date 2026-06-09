@@ -547,8 +547,8 @@ body {
 
 <nav class="navbar">
   <a href="#" class="logo" id="logoLink">
-    <span id="logoIcon"></span>
-    <span id="logoText">Trader's Trail</span>
+    <img src="logo.svg" width="32" height="32" alt="" onerror="this.style.display='none'">
+    <span>Trader's Trail</span>
   </a>
   <div class="search-bar">
     <span class="search-icon">
@@ -614,12 +614,10 @@ body {
 const SITE_CONFIG = {
   name: "Trader's Trail",
   tagline: "Premium gaming marketplace trusted by thousands of players worldwide.",
-  logoIcon: `<img src="logo.svg" width="32" height="32" alt="Logo">`,
+  logoIcon: ``,
   discordInvite: "https://discord.gg/YOURINVITE"
 };
 
-document.getElementById('logoIcon').innerHTML = SITE_CONFIG.logoIcon;
-document.getElementById('logoText').textContent = SITE_CONFIG.name;
 document.querySelectorAll('.footer-logo').forEach(el => el.textContent = SITE_CONFIG.name);
 document.querySelector('.hero p').textContent = SITE_CONFIG.tagline;
 document.getElementById('discordNav').href = SITE_CONFIG.discordInvite;
