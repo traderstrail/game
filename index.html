@@ -614,7 +614,12 @@ body {
 const SITE_CONFIG = {
   name: "Trader's Trail",
   tagline: "Premium gaming marketplace trusted by thousands of players worldwide.",
-  logoIcon: `<img src="logo.svg" width="32" height="32" alt="Logo">`,
+  logoIcon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+    <rect width="32" height="32" rx="8" fill="url(#lg)"/>
+    <path d="M16 6l10 6v8l-10 6-10-6v-8l10-6z" fill="rgba(255,255,255,0.15)"/>
+    <path d="M16 10l6 4v5l-6 4-6-4v-5l6-4z" fill="#fff"/>
+    <defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>
+  </svg>`,
   discordInvite: "https://discord.gg/YOURINVITE"
 };
 
